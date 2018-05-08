@@ -1,18 +1,36 @@
-<nav class="navbar is-light">
-<div class="navbar-end">
-  <% if user_signed_in? %>
-    <%= link_to 'Sell', new_camera_path, class: "navbar-item button is-dark"%>
-    <div class="navbar-item has-dropdown is-hoverable">
-      <%= link_to "Account", edit_user_registration_path, class: "navbar-link" %>
-      <div class="navbar-dropdown is-right">
-        <%= link_to current_user.name, edit_user_registration_path, class: "navbar-item" %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+<nav class="navbar is-primary">
+  <div class="navbar-brand">
+    <%= link_to root_path, class: 'navbar-item' do %>
+      <h1 class="button is-primary is-4">B.U.Gs</h1>
+    <% end %>
+  </div>
+    
+  <div class="navbar-menu is-active">
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+        <%= link_to 'Sell', new_camera_path, class: "navbar-item" %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <%= link_to "Account", edit_user_registration_path, class: "navbar-link" %>
+          <div class="navbar-dropdown is-right">
+            <%= link_to current_user.name, edit_user_registration_path, class: "navbar-item" %>
+            <%= link_to "My Products", cameras_path, class: "navbar-item" %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path, class: "navbar-item"%>
+        <%= link_to 'Register', new_user_registration_path, class: "navbar-item"%>
+      <% end %>
+      <%= link_to cart_path(@cart), class:"navbar-item" do %>
+        <span class="icon is-small">
+          <i class="fa fa-shopping-cart"></i>
+        </span>
+        <span>Cart
+          <%= cart_count_over_one %>
+        </span>
+      <% end %>
       </div>
-    </div>
-  <% else %>
-    <%= link_to 'Login', new_user_session_path, class: "navbar-item button is-warning"%>
-    <%= link_to 'Register', new_user_registration_path, class: "navbar-item button is-warning"%>
-  <% end %>
   </div>
  
 </nav>
+
