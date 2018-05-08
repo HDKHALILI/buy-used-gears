@@ -1,0 +1,69 @@
+<section class="section camera-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @camera.title %></h1>
+
+      <ul class="pv1">
+        <% if @camera.brand? %>
+          <li class="inline-block pr3"><%= @camera.brand %></li>
+        <% end %>
+
+        <li class="inline-block pr3"><%= @camera.model %></li>
+        <li class="inline-block pr3"><%= @camera.condition %></li>
+      </ul>
+
+      <div class="feature-image">
+        <%= image_tag(@camera.image_url(:default)) %>
+      </div>
+
+      <div class="content pa4 mt3 bg-white border-radius-3">
+
+      <h3 class="subtitle is-4">Description</h3>
+      <%= @camera.description %>
+
+
+      <h3 class="subtitle is-4 pt5">Product Specs</h3>
+
+      <table class="table is-narrow">
+        <% if @camera.condition %>
+        <tr>
+          <td class="has-text-weight-bold">Condition:</td>
+          <td><%= @camera.condition %></td>
+        </tr>
+        <% end %>
+
+        <% if @camera.color %>
+          <tr>
+            <td class="has-text-weight-bold">Color:</td>
+            <td><%= @camera.color %></td>
+          </tr>
+        <% end %>
+
+        <% if @camera.brand %>
+          <tr>
+            <td class="has-text-weight-bold">Brand:</td>
+            <td><%= @camera.brand %></td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td class="has-text-weight-bold">Model:</td>
+          <td><%= @camera.model %></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@camera.price) %></h4>
+        <p class="has-text-centered mb4">Sold by <%= @camera.user.name %></p>
+        <%= button_to 'Add to cart', line_items_path(camera_id: @camera), class: 'button is-warning add-to-cart' %>
+      </div>
+    </div>
+  </div>
+
+  <% if camera_author(@camera) %>
+    <%= link_to 'Edit', edit_camera_path(@camera), class: 'button' %>
+  <% end %>
+  <%= link_to "Back", cameras_path, class: "button"%>
+</section>

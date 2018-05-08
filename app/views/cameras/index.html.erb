@@ -1,0 +1,25 @@
+<div class="camera-index-grid pt4">
+  <% @cameras.each do |camera| %>
+    <div class="camera border-light">
+      <div class="camera-thumb">
+        <%= link_to image_tag(camera.image_url(:thumb)), camera %>
+      
+        <div class="condition">
+          <span class="tag is-dark"><%= camera.condition %></span>
+        </div>
+      </div>
+    
+
+      <div class="pa3">
+        <h3 class="fw7 f4 title"><%= link_to camera.title, camera %></h3>
+        <p class="has-text-gray fg pt1">Sold by <%= camera.user.name %></p>
+        <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(camera.price) %></p>
+
+        <% if camera_author(camera) %>
+          <%= link_to "Edit", edit_camera_path(camera), class: "button is-small" %>
+          <%= link_to "Delete", camera, method: :delete, data: { confirm: "Are you sure?" }, class: "button is-small" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

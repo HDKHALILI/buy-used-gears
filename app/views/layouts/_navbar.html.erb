@@ -1,3 +1,18 @@
 <nav class="navbar is-light">
-  <!-- navbar brand, navbar menu... -->
+<div class="navbar-end">
+  <% if user_signed_in? %>
+    <%= link_to 'Sell', new_camera_path, class: "navbar-item button is-dark"%>
+    <div class="navbar-item has-dropdown is-hoverable">
+      <%= link_to "Account", edit_user_registration_path, class: "navbar-link" %>
+      <div class="navbar-dropdown is-right">
+        <%= link_to current_user.name, edit_user_registration_path, class: "navbar-item" %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+      </div>
+    </div>
+  <% else %>
+    <%= link_to 'Login', new_user_session_path, class: "navbar-item button is-warning"%>
+    <%= link_to 'Register', new_user_registration_path, class: "navbar-item button is-warning"%>
+  <% end %>
+  </div>
+ 
 </nav>
