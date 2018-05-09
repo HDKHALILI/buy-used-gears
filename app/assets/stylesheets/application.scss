@@ -13,14 +13,23 @@
  *= require_tree .
  *= require_self
  */
-
-$link: #444;
-$link-hover: #222;
+$title-color: #fff;
+$navbar-background-color: #FEB47B;
+$navbar-item-hover-color: $title-color;
+$navbar-item-hover-background-color: #F5AB99;
+// $navbar-item-hover-background-color: #FF7E5F;
+// $link: #444;
+// $link-hover: #222;
 
 @import "font-awesome";
 @import "bulma";
 @import "functions";
 
+.pale-orange { 
+  background: #FEB47B; 
+  // background: #FF7E5F; 
+  
+}
 .notification {
   border-radius: 0;
 }

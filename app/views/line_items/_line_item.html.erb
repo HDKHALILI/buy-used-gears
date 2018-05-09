@@ -21,9 +21,13 @@
 </div>
 
 <div class="has-text-right">
-  <%= link_to line_item, method: :delete, data: { confirm: "Are you sure? " } do %>
-    <span class="is-light">Remove item <i class="fa fa-times-circle"></i> </span>
+  <%= link_to line_item, method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger is-outlined" do %>
+    <span>Remove</span>
+    <span class="icon is-small">
+      <i class="fa fa-times"></i>
+    </span>
   <% end %>
 </div>
+    
 
 <hr/ >
