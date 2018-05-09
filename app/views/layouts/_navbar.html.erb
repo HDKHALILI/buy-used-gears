@@ -22,14 +22,25 @@
         <%= link_to 'Login', new_user_session_path, class: "navbar-item"%>
         <%= link_to 'Register', new_user_registration_path, class: "navbar-item"%>
       <% end %>
+
+      <% if cart_has_items %>
       <%= link_to cart_path(@cart), class:"navbar-item" do %>
+          <span class="icon is-small">
+            <i class="fa fa-shopping-cart"></i>
+          </span>
+          <span>Cart
+            <%= cart_count_over_one %>
+          </span>
+          <% end %>
+      <% else %>
+        <%= link_to cameras_path, class:"navbar-item" do %>
         <span class="icon is-small">
           <i class="fa fa-shopping-cart"></i>
         </span>
-        <span>Cart
-          <%= cart_count_over_one %>
-        </span>
+        <span>Cart 0 </span>
+        <% end %>
       <% end %>
+
       </div>
   </div>
  </div>

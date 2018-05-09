@@ -4,6 +4,7 @@ class Camera < ApplicationRecord
 
   belongs_to :user, optional: true
   has_many :line_items
+  has_many :orders, through: :line_items
 
   validates :title, :brand, :price, :model, :condition, presence: true
   validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed" }

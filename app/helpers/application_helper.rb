@@ -7,6 +7,14 @@ module ApplicationHelper
   end
 
   def cart_has_items
-    return @cart.line_items.count > 0
+    unless @cart.nil?
+      return @cart.line_items.count > 0
+    end
   end
+
+  # def is_in_cart
+  #   unless cart_has_items
+  #     return @cart.line_items.include(params[:id])
+  #   end
+  # end
 end

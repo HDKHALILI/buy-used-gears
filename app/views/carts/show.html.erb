@@ -9,9 +9,13 @@
     <div class="column">
       <%= button_to "Empty Cart", @cart, method: :delete, data: { confirm: "Are you sure?" }, class: "button is-danger" %>
     </div>
+    <div class="column">
+      <%= button_to "Checkout", new_order_path, method: 'get', class: "button is-success" %>
+    </div>
     <div class="column total has-text-right">
       <h4 class="title is-4">
-        <span class="f5 has-text-grey">Total: </span><%= number_to_currency(@cart.total_price)%>
+        <span class="f5 has-text-grey">Total: </span>
+        <span class="has-text-grey"><%= number_to_currency(@cart.total_price) %></span>
       </h4>
     </div>
   </div>
