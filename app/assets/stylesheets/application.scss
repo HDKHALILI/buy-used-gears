@@ -14,22 +14,32 @@
  *= require_self
  */
 $title-color: #fff;
-$navbar-background-color: #FEB47B;
+$navbar-background-color: #3DDAD7;
 $navbar-item-hover-color: $title-color;
-$navbar-item-hover-background-color: #F5AB99;
+// $navbar-item-hover-background-color: #F5AB99;
+$navbar-item-hover-background-color: rgb(21, 170, 175);
 // $navbar-item-hover-background-color: #FF7E5F;
 // $link: #444;
 // $link-hover: #222;
-
+@import url("https://fonts.googleapis.com/css?family=Vollkorn:400,600,900");
 @import "font-awesome";
 @import "bulma";
 @import "functions";
 
-.pale-orange { 
-  background: #FEB47B; 
-  // background: #FF7E5F; 
-  
+html {
+  font-family: "Vollkorn", sans-serif;
 }
+
+.blue-color {
+  color: #3DDAD7;
+}
+.main-content {
+  height: 100vh;
+}
+.title {
+  font-weight: 900;
+}
+
 .notification {
   border-radius: 0;
 }
@@ -41,13 +51,15 @@ $navbar-item-hover-background-color: #F5AB99;
 .camera-index-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 5%;
+  
 
   .camera {
-    border-left: 0;
-    border-top: 0;
+    // border-left: 0;
+    // border-top: 0;
     position: relative;
     min-height: 375px;
-
+    margin-bottom: 10%;
     .title {
       line-height: 1.6rem;
     }

@@ -36,7 +36,7 @@
   <hr>
   <div class="field is-grouped">
     <div class="control">
-      <%= f.button :submit, "Place Order", class: 'button is-warning' %>
+      <%= button_to "Place Order", new_charge_path, class: 'button is-warning' %>
       <%= link_to 'Cancel', cameras_path, class:'button is-light' %>
     </div>
   </div>

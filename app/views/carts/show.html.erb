@@ -10,7 +10,21 @@
       <%= button_to "Empty Cart", @cart, method: :delete, data: { confirm: "Are you sure?" }, class: "button is-danger" %>
     </div>
     <div class="column">
-      <%= button_to "Checkout", new_order_path, method: 'get', class: "button is-success" %>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="<%= @description %>"
+                data-amount="<%= @cart.total_price * 100 %>"
+                data-locale="auto"></script>
+      <% end %>
     </div>
     <div class="column total has-text-right">
       <h4 class="title is-4">

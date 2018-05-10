@@ -1,6 +1,7 @@
 class CamerasController < ApplicationController
   before_action :set_camera, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :owned_camera, only: [:edit, :update, :destroy]
 
   # GET /cameras
   # GET /cameras.json
@@ -82,5 +83,12 @@ class CamerasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def camera_params
       params.require(:camera).permit(:brand, :model, :description, :title, :color, :condition, :price, :image)
+    end
+
+    def owned_camera
+      unless current_user == @camera.user
+        flash[:alert] = "That listing is not yours"
+        redirect_to root_path
+      end
     end
 end

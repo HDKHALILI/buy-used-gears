@@ -1,4 +1,9 @@
+<div class="container pv4">
+  <section class="section">
 
-
-<h2>Thanks, you paid <strong><%= prety_amount(@amount) %></strong>!</h2>
-
+    <h2 class="title is-2">Thanks, you paid <strong><%= prety_amount(@amount) %></strong>!</h2>
+    <h2 class="title is-">Your bought</h2>
+    <%= render @cart.line_items %>
+    <%= link_to "Home", cameras_path%>
+  </div>
+</div>
