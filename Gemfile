@@ -47,6 +47,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.4'
   gem 'guard', '~> 2.14', '>= 2.14.1'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
+  gem 'dotenv-rails'
 end
 
 group :development do

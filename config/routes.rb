@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :cameras do
     get :who_bought, on: :member
   end
-  resources :charges
+  resources :charges, only: [:new, :create]
+  get 'thanks', to: 'charges#thanks', as: 'thanks'
+
   devise_for :users, controllers: {
     registrations: 'registrations'
   }
