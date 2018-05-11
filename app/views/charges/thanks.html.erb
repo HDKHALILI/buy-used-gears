@@ -1,9 +1,22 @@
-<div class="container pv4">
-  <section class="section">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bugs</title>
+    <%= csrf_meta_tags %>
 
-    <h2 class="title is-2">Thanks, you paid <strong><%= prety_amount(@amount) %></strong>!</h2>
-    <h2 class="title is-">Your bought</h2>
-    <%= render @cart.line_items %>
-    <%= link_to "Home", cameras_path%>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<body>
+  <div class="container">
+    <section class="section">
+      <div class="column">
+
+      <h2 class="title blue-color is-2">Thanks, you paid <strong><%= prety_amount(@amount) %></strong>!</h2>
+      <h2 class="title blue-color is-">Your bought</h2>
+      <%= render @cart.line_items %>
+      <%= link_to "Home", cameras_path%>
+      </div>
+    </div>
   </div>
-</div>
+</body>

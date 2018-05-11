@@ -56,7 +56,7 @@
     <div class="column is-3 is-offset-1">
       <div class="bg-white pa4 border-radius-3">
         <h4 class="title is-5 has-text-centered"><%= number_to_currency(@camera.price) %></h4>
-        <p class="has-text-centered mb4">Sold by <%= @camera.user.name %></p>
+        <p class="has-text-centered mb4">Sold by <%= @camera.user.name unless @camera.user.nil? %></p>
         <%= button_to 'Add to cart', line_items_path(camera_id: @camera), class: 'button is-warning add-to-cart' %>
       </div>
     </div>

@@ -23,6 +23,8 @@ class ChargesController < ApplicationController
   def thanks
   end
 
+  
+
   private
 
   def amount_to_be_charged
