@@ -11,6 +11,13 @@ class Cart < ApplicationRecord
     current_item
   end
 
+  def owner_camera 
+    current_item = line_items.find_by(camera_id: camera.id)
+    if current_item.id == current_user.camera.id
+      return true
+    end    
+  end
+
   def total_price
     line_items.to_a.sum { |item| item.total_price }
   end
